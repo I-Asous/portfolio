@@ -6,7 +6,20 @@ import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
+import { ThemeToggle } from './components/theme-toggle'
 import { baseUrl } from './sitemap'
+
+const themeInitScript = `
+(function () {
+  try {
+    var theme = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (theme === 'dark' || (!theme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+})();
+`
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -51,8 +64,13 @@ export default function RootLayout({
         GeistSans.variable,
         GeistMono.variable
       )}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto min-h-screen flex flex-col">
+        <ThemeToggle />
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
           <div className="flex-1">{children}</div>

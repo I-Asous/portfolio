@@ -1,11 +1,10 @@
 import { Experience } from 'app/components/experience'
+import { TypingHeading } from 'app/components/typing-heading'
 
 export default function Page() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
-      </h1>
+      <TypingHeading className="mb-8 text-2xl font-semibold tracking-tighter" />
       <p className="mb-4">
         {`I'm Islam.
         I'm a computer science student at Hunter College who spends more time debugging authentication flows than I'd like to admit.
