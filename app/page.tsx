@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts'
+import { Experience } from 'app/components/experience'
 
 export default function Page() {
   return (
@@ -7,14 +7,14 @@ export default function Page() {
         My Portfolio
       </h1>
       <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+        {`I'm Islam.
+        I'm a computer science student at Hunter College who spends more time debugging authentication flows than I'd like to admit.
+        Currently building a browser extension to study how people actually behave when they log in, as part of an NSF-funded research project.
+        When I'm not knee-deep in TypeScript, I'm helping 600+ students survive computer theory and intro to DSA & OOP as a TA,
+        or getting yelled at by a compiler in the Visualization and Virtual Reality Lab.`}
       </p>
       <div className="my-8">
-        <BlogPosts />
+        <Experience />
       </div>
     </section>
   )
