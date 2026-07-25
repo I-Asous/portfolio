@@ -13,6 +13,9 @@ export default function Page() {
         or getting yelled at by a compiler in the Visualization and Virtual Reality Lab.`}
       </p>
       <div className="my-8">
+        <h2 className="mb-4 text-xl font-semibold tracking-tighter">
+          Current Roles
+        </h2>
         <Experience />
       </div>
     </section>
