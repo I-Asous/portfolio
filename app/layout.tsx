@@ -24,13 +24,13 @@ const themeInitScript = `
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Islam Asous Portfolio',
+    default: 'Islams Portfolio',
     template: '%s | Islam Asous Portfolio',
   },
-  description: 'This is my portfolio.',
+  description: 'Welcome in, this is me',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Islams Portfolio',
+    description: 'Welcome in, this is me',
     url: baseUrl,
     siteName: 'Portfolio',
     locale: 'en_US',
