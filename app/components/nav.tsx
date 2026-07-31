@@ -1,9 +1,13 @@
 import Link from 'next/link'
 
+//Top of page to add links
 const navItems = {
   '/': {
     name: 'home',
   },
+  '/jokes': {
+    name: 'quirky jokes'
+  }
 }
 
 export function Navbar() {
