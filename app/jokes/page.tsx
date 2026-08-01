@@ -1,8 +1,9 @@
-import { JokeAPI } from '@bitstep/jokeapi'
+import { JokeAPI, JokeCategory } from '@bitstep/jokeapi'
+
 
 export default async function Page() {
   const jokeClient = new JokeAPI()
-  const joke = await jokeClient.getRandomJoke()
+  const joke = await jokeClient.getJoke([JokeCategory.PROGRAMING])
   
   return(
     <section>
