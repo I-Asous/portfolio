@@ -10,7 +10,7 @@ export default function Page() {
 
   async function fetchJoke() {
     const jokeClient = new JokeAPI()
-    const newJoke = await jokeClient.getJoke([JokeCategory.PROGRAMING])
+    const newJoke = await jokeClient.getJoke([JokeCategory.PROGRAMING, JokeCategory.SPOOKY])
     setJoke(newJoke)
   }
 
