@@ -15,10 +15,17 @@
     "@vercel/speed-insights": "^1.0.9",
     "geist": "1.2.2",
     "next": "^16.0.10",
+    "pg": "^8.22.0",
     "postcss": "^8.4.35",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-globe.gl": "^2.38.0",
     "tailwindcss": "^4.3.3",
+    "three": "0.185.1",
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.4",
+    "@types/three": "0.185.1"
   }
 }

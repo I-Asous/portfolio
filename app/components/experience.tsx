@@ -57,7 +57,7 @@ export function Experience() {
           </p>
           <div className="flex flex-col">
             {entry.description && entry.description.length > 0 ? (
-              <p
+              <div
                 tabIndex={0}
                 className="group relative inline-block w-fit text-neutral-900 dark:text-neutral-100 tracking-tight cursor-help underline decoration-dotted decoration-neutral-400 dark:decoration-neutral-600 underline-offset-4 outline-none"
               >
@@ -76,7 +76,7 @@ export function Experience() {
                     </ul>
                   )}
                 </span>
-              </p>
+              </div>
             ) : (
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {entry.role}
