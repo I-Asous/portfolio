@@ -8,12 +8,23 @@ type Role = {
 
 const roles: Role[] = [
   {
-    dateRange: 'Jun 2026',
-    role: 'Software Engineer, REU @ HATlab, Clemson University',
+    dateRange: 'Aug 2026',
+    role: 'Small Scale Application Development @ NYC Department of Transportion',
     location: 'Remote',
     description: [
-      'Developing a browser extension (WXT, Vue 3, TypeScript, Dexie.js) to track user authentication behavior across enterprise and crowdsourcing platforms, supporting NSF SaTC 2.0 research (Award #2521037, $650K) on usable secure authentication.',
-      'Designing and building a real-time broadcast notification system (Vue 3, Pinia, Supabase Realtime) enabling admins to push instant announcements to all authenticated dashboard users, with role-based access control via Postgres Row-Level Security.',
+      'Scoping and delivering a minimum viable product against a formal project scope and change-order process, translating stakeholder requirements into defined deliverables and timelines.',
+      'Collecting and analyzing data to inform application requirements and track project progress.',
+      'Communicating progress through written status reports and oral presentations to leadership, practicing stakeholder management and technical communication.'
+    ],
+  },
+  {
+    dateRange: 'Jun 2026',
+    role: 'Software Engineer REU @ HATlab, Clemson University',
+    location: 'Remote',
+    description: [
+      'Debugged and maintained an authentication-tracking browser extension (WXT, Vue 3, TypeScript, Dexie.js) supporting NSF-funded research (Award #2521037, $650K) into usability gaps and authentication-fatigue-driven password reuse, capturing real-world authentication metrics across enterprise and AI-crowdsourcing platforms.',
+      'Built a real-time broadcast notification system from scratch (Vue 3, Pinia, Supabase Realtime) enabling admins to push instant announcements to authenticated dashboard users, enforcing role-based access control via Postgres Row-Level Security.',
+      'Embedded Claude Code into an agentic full-stack development workflow spanning implementation, test authoring, cross-repository debugging (Supabase permissions, OAuth redirects, CI issues), and PR review: iterating on prompts and AI-generated output to accelerate feature delivery while maintaining 90%+ test coverage.'
     ],
   },
   {
