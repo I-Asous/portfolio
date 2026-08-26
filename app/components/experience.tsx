@@ -9,7 +9,7 @@ type Role = {
 const roles: Role[] = [
   {
     dateRange: 'Aug 2026',
-    role: 'Small Scale Application Development @ NYC Department of Transportion',
+    role: 'PM Small Scale Application Development @ NYC Department of Transportion',
     location: 'Remote',
     description: [
       'Scoping and delivering a minimum viable product against a formal project scope and change-order process, translating stakeholder requirements into defined deliverables and timelines.',
