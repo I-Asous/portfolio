@@ -8,9 +8,10 @@ export default function Page() {
       <p className="mb-4">
         {`I'm Islam.
         I'm a computer science student at Hunter College who spends more time debugging authentication flows than I'd like to admit.
-        Currently building a browser extension to study how people actually behave when they log in, as part of an NSF-funded research project.
-        When I'm not knee-deep in TypeScript, I'm helping 600+ students survive computer theory and intro to DSA & OOP as a TA,
-        or getting yelled at by a compiler in the Visualization and Virtual Reality Lab.`}
+        I'm a Software Engineer REU on Project Sisyphus, an NSF-funded research effort at Clemson University's HATLab studying authentication-fatigue-driven password reuse,
+        and I'm interning with the NYC Department of Transportation, scoping and delivering small-scale applications.
+        Outside of that, I'm helping 600+ students survive computer architecture, theory, and DSA & OOP as a TA,
+        or digging into machine learning and SQL as a CUNY Tech Prep Data Science Fellow.`}
       </p>
       <div className="my-8">
         <h2 className="mb-4 text-xl font-semibold tracking-tighter">
