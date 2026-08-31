@@ -1,4 +1,7 @@
+import Link from 'next/link'
+
 type Project = {
+  slug: string
   dateRange: string
   name: string
   tagline: string
@@ -9,10 +12,11 @@ type Project = {
 
 const projects: Project[] = [
   {
-    dateRange: 'May – Aug 2026',
-    name: 'Chronos Dashboard',
+    slug: 'sisyphus',
+    dateRange: 'May – Present',
+    name: 'Project Sisyphus',
     tagline:
-      'Analytics dashboard for an NSF-funded study on how people actually authenticate.',
+      'Analytics for an NSF-funded study on how people actually authenticate.',
     tech: [
       'Vue 3',
       'TypeScript',
@@ -33,6 +37,25 @@ const projects: Project[] = [
   },
 ]
 
+function renderDescriptionLine(line: string) {
+  const parts = line.split('Chronos')
+  if (parts.length === 1) return line
+
+  return parts.map((part, index) => (
+    <span key={index}>
+      {part}
+      {index < parts.length - 1 && (
+        <Link
+          href="/projects/chronos"
+          className="pointer-events-auto underline decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 hover:text-neutral-900 dark:hover:text-neutral-200"
+        >
+          Chronos
+        </Link>
+      )}
+    </span>
+  ))
+}
+
 export function Projects() {
   return (
     <div>
@@ -45,17 +68,19 @@ export function Projects() {
             {entry.dateRange}
           </p>
           <div className="flex flex-col">
-            <div
-              tabIndex={0}
-              className="group relative inline-block w-fit text-neutral-900 dark:text-neutral-100 tracking-tight cursor-help underline decoration-dotted decoration-neutral-400 dark:decoration-neutral-600 underline-offset-4 outline-none"
-            >
-              {entry.name}
-              <span className="pointer-events-none absolute left-0 top-full z-20 mt-3 w-[32rem] max-w-[90vw] origin-top-left scale-95 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 opacity-0 shadow-xl transition-[opacity,transform] duration-150 group-hover:opacity-100 group-hover:scale-100 group-focus:opacity-100 group-focus:scale-100">
+            <div className="group relative inline-block w-fit text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <Link
+                href={`/projects/${entry.slug}`}
+                className="underline decoration-dotted decoration-neutral-400 dark:decoration-neutral-600 underline-offset-4 outline-none hover:text-neutral-600 dark:hover:text-neutral-300"
+              >
+                {entry.name}
+              </Link>
+              <span className="pointer-events-none absolute left-0 top-full z-20 mt-3 w-[32rem] max-w-[90vw] origin-top-left scale-95 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 opacity-0 shadow-xl transition-[opacity,transform] duration-150 group-hover:opacity-100 group-hover:scale-100 group-focus-within:opacity-100 group-focus-within:scale-100">
                 <span className="absolute -top-1.5 left-4 h-3 w-3 rotate-45 border-l border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900" />
                 {entry.description && entry.description.length > 0 && (
                   <ul className="list-disc list-outside space-y-2 pl-4 text-base font-normal leading-relaxed text-neutral-700 dark:text-neutral-300">
                     {entry.description.map((line, lineIndex) => (
-                      <li key={lineIndex}>{line}</li>
+                      <li key={lineIndex}>{renderDescriptionLine(line)}</li>
                     ))}
                   </ul>
                 )}
