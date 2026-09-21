@@ -14,7 +14,7 @@ const projects: Project[] = [
   {
     slug: 'sisyphus',
     dateRange: '',
-    name: 'Project Sisyphus',
+    name: 'Project Sisyphus - HATLab, Clemson University',
     tagline:
       'Analytics for an NSF-funded study on how people actually authenticate.',
     tech: [
