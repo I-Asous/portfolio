@@ -1,4 +1,5 @@
 import { Experience } from 'app/components/experience'
+import { Projects } from 'app/components/projects'
 import { TypingHeading } from 'app/components/typing-heading'
 
 export default function Page() {
@@ -18,6 +19,12 @@ export default function Page() {
           Current Roles
         </h2>
         <Experience />
+      </div>
+      <div className="my-8">
+        <h2 className="mb-4 text-xl font-semibold tracking-tighter">
+          Projects
+        </h2>
+        <Projects />
       </div>
     </section>
   )

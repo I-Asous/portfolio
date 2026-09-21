@@ -13,7 +13,7 @@ type Project = {
 const projects: Project[] = [
   {
     slug: 'sisyphus',
-    dateRange: 'May – Present',
+    dateRange: '',
     name: 'Project Sisyphus',
     tagline:
       'Analytics for an NSF-funded study on how people actually authenticate.',
