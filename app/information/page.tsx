@@ -33,9 +33,13 @@ export default function Page() {
           <ul className="space-y-4">
             {projects.map((project) => (
               <li key={project.slug}>
-                <Link href={`/projects/${project.slug}`} className={linkClass}>
-                  {project.name}
-                </Link>
+                {project.hasCaseStudy ? (
+                  <Link href={`/projects/${project.slug}`} className={linkClass}>
+                    {project.name}
+                  </Link>
+                ) : (
+                  <p>{project.name}</p>
+                )}
                 <p className="text-neutral-500">{project.tech.join(', ')}</p>
               </li>
             ))}

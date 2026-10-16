@@ -63,6 +63,8 @@ export const roles: Role[] = [
 
 export type Project = {
   slug: string
+  // Only projects with a page under app/projects/<slug> get linked to it.
+  hasCaseStudy?: boolean
   dateRange: string
   name: string
   tagline: string
@@ -74,6 +76,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'sisyphus',
+    hasCaseStudy: true,
     dateRange: '',
     name: 'Project Sisyphus - HATLab, Clemson University',
     tagline:
@@ -95,6 +98,32 @@ export const projects: Project[] = [
       href: 'https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2521037',
       label: 'NSF Award #2521037',
     },
+  },
+  {
+    slug: 'token-watching',
+    dateRange: 'Aug 2026',
+    name: 'Token Watching - Capstone, CUNY Hunter',
+    tagline:
+      'A Chrome extension that cuts LLM prompt costs in real time. I own the agents and how they are orchestrated.',
+    tech: ['Python', 'Tiktoken', 'Anthropic API', 'Multi-agent pipeline'],
+    description: [
+      'Designed the orchestration of a three-agent pipeline (Auditor → Optimizer → Validator) that runs inside ChatGPT and Claude, resolving most prompts through deterministic checks alone so token-waste detection costs next to nothing.',
+      'Built the Auditor (Python, Tiktoken, Anthropic) and Optimizer agents, cutting a representative prompt 74% (31 to 8 tokens) with its intent preserved.',
+      'Built the Validator around a Read-Answer-Cite-Think reasoning structure: a 1–10 LLM-judged quality score with a pass/fail threshold, each verdict grounded in quoted evidence from the original prompt, so meaning-changing rewrites are rejected.',
+    ],
+  },
+  {
+    slug: 'gridlock',
+    dateRange: 'Oct 2026',
+    name: 'Gridlock - Multi-Agent Specification-Gaming Testbed',
+    tagline:
+      'A multi-agent gridworld that measures when agents follow the stated rules but break the designer’s intent.',
+    tech: ['Tabular Q-learning', 'A* search', 'Constraint satisfaction', 'AI Safety Gridworlds'],
+    description: [
+      'Building a reproducible multi-agent gridworld that measures specification gaming (agents satisfying stated rules while violating hidden designer intent), extending the AI Safety Gridworlds framework with adversarial multi-agent scenarios.',
+      'Training a tabular Q-learning agent that discovers rule-legal loopholes through trial and error, benchmarked against A* path-planning and constraint-satisfaction agents behind a shared agent interface.',
+      'Engineering an oversight monitor that scores behavior against hidden intent and flags divergence, evaluated by detection rate, time-to-detect, and false-positive rate against a static-rule baseline.',
+    ],
   },
 ]
 

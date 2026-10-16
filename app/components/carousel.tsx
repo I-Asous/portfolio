@@ -26,18 +26,26 @@ type Group = {
   extra: { label: string; href?: string; action?: 'draw' }
 }
 
-const project = projects[0]
-
 const staticGroups: Group[] = [
   {
-    title: ['Project Sisyphus', 'HATlab, Clemson University'],
-    slides: [
-      { kind: 'text', big: project.tagline, small: project.tech.join(' · ') },
-      ...(project.description ?? []).map(
-        (line): Slide => ({ kind: 'text', big: line })
-      ),
-    ],
-    extra: { label: 'ABC', href: `/projects/${project.slug}` },
+    title: ['Projects', 'Sisyphus, Token Watching & Gridlock'],
+    slides: projects.map(
+      (project): Slide => ({
+        kind: 'text',
+        big: project.name,
+        small: [
+          project.tagline,
+          project.description?.join(' '),
+          project.tech.join(' · '),
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
+        link: project.hasCaseStudy
+          ? { href: `/projects/${project.slug}`, label: 'Read the case study' }
+          : undefined,
+      })
+    ),
+    extra: { label: 'ABC', href: '/information' },
   },
   {
     title: ['Current roles', 'Research, industry & teaching'],
@@ -114,16 +122,24 @@ function SlideView({ slide }: { slide: Slide }) {
           {slide.small}
         </p>
       )}
-      {slide.link && (
-        <a
-          href={slide.link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block text-sm uppercase underline underline-offset-4"
-        >
-          {slide.link.label} ↗
-        </a>
-      )}
+      {slide.link &&
+        (slide.link.href.startsWith('/') ? (
+          <Link
+            href={slide.link.href}
+            className="mt-4 inline-block text-sm uppercase underline underline-offset-4"
+          >
+            {slide.link.label}
+          </Link>
+        ) : (
+          <a
+            href={slide.link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-block text-sm uppercase underline underline-offset-4"
+          >
+            {slide.link.label} ↗
+          </a>
+        ))}
     </div>
   )
 }
