@@ -268,7 +268,7 @@ export function Carousel() {
           <div key={group.title[0]}>
             <button
               onClick={() => setPosition(offsets[g])}
-              className="block w-full text-left uppercase"
+              className="block w-full text-center uppercase"
             >
               <span className="mb-2 block text-center">{g + 1}</span>
               <span className={g === activeGroup ? 'underline underline-offset-2' : ''}>
@@ -277,7 +277,7 @@ export function Carousel() {
                 {group.title[1]}
               </span>
             </button>
-            <div className="mt-3 flex flex-wrap gap-x-2.5 gap-y-1 [&>*]:uppercase">
+            <div className="mt-3 flex flex-wrap justify-center gap-x-2.5 gap-y-1 [&>*]:uppercase">
               {group.slides.map((_, s) => (
                 <button
                   key={s}
