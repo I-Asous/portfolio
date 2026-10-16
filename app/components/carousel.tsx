@@ -89,11 +89,12 @@ function SlideView({ slide }: { slide: Slide }) {
       <div className="title max-w-3xl space-y-[1.1em] text-[clamp(1.7rem,3.3vw,2.7rem)] leading-[1.15] lowercase">
         <p>
           i&apos;m islam, a nyc based computer science student at hunter
-          college and software engineer.
+          college and software engineer intern & REU, data science fellow
+          and a teaching assistant for a few courses.
         </p>
         <p>
           i&apos;m keen on authentication flows, research data, and helping
-          600+ students survive computer architecture.
+          600+ students survive computer theory, architecture, and DSA/OOP.
         </p>
       </div>
     )
