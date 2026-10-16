@@ -23,7 +23,7 @@ export default async function Page() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         Where you from?
       </h1>
-      <p className="mb-4 text-neutral-600 dark:text-neutral-400">
+      <p className="mb-4 text-neutral-600">
         Click anywhere on the globe, drop a pin, and let me know where
         you're saying hi from.
       </p>

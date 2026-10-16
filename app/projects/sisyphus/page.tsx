@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 const linkClass =
-  'underline decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 hover:text-neutral-900 dark:hover:text-neutral-200'
+  'underline decoration-neutral-400 underline-offset-2 hover:text-neutral-900'
 
 const meta = [
   { label: 'Role', value: 'Software engineer, extension' },
@@ -117,24 +117,24 @@ function SectionHeading({
   )
 }
 
-const bodyClass = 'mb-4 text-neutral-600 dark:text-neutral-400'
+const bodyClass = 'mb-4 text-neutral-600'
 
 export default function Page() {
   return (
     <article>
       <p className="mb-2 font-mono text-xs text-neutral-500">Case study</p>
       <h1 className="mb-4 text-2xl font-semibold tracking-tighter">Chronos</h1>
-      <p className="mb-8 text-neutral-600 dark:text-neutral-400">
+      <p className="mb-8 text-neutral-600">
         Giving a silent research extension a voice: reminders and announcements
         that reach study participants, built inside a Manifest V3 browser
         extension.
       </p>
 
-      <dl className="mb-6 grid grid-cols-2 gap-x-6 gap-y-4 border-y border-neutral-200 dark:border-neutral-800 py-5">
+      <dl className="mb-6 grid grid-cols-2 gap-x-6 gap-y-4 border-y border-neutral-200 py-5">
         {meta.map((item) => (
           <div key={item.label}>
             <dt className="text-xs text-neutral-500">{item.label}</dt>
-            <dd className="text-sm text-neutral-900 dark:text-neutral-100">
+            <dd className="text-sm text-neutral-900">
               {item.value}
             </dd>
           </div>
@@ -145,7 +145,7 @@ export default function Page() {
         {tech.map((item) => (
           <span
             key={item}
-            className="text-xs text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 rounded-full px-2 py-0.5"
+            className="text-xs text-neutral-600 border border-neutral-200 rounded-full px-2 py-0.5"
           >
             {item}
           </span>
@@ -154,7 +154,7 @@ export default function Page() {
 
       <nav
         aria-label="On this page"
-        className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600 dark:text-neutral-400"
+        className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600"
       >
         {sections.map((section) => (
           <a key={section.id} href={`#${section.id}`} className={linkClass}>
@@ -202,10 +202,10 @@ export default function Page() {
       <ul className="space-y-6">
         {built.map((item) => (
           <li key={item.title}>
-            <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+            <p className="text-neutral-900 tracking-tight">
               {item.title}
             </p>
-            <p className="mt-1 text-neutral-600 dark:text-neutral-400">
+            <p className="mt-1 text-neutral-600">
               {item.body}
             </p>
           </li>
@@ -215,16 +215,16 @@ export default function Page() {
       <SectionHeading id="decisions" index="04">
         Design decisions
       </SectionHeading>
-      <div className="divide-y divide-neutral-200 dark:divide-neutral-800 border-y border-neutral-200 dark:border-neutral-800">
+      <div className="divide-y divide-neutral-200 border-y border-neutral-200">
         {decisions.map((item) => (
           <div
             key={item.title}
             className="flex flex-col gap-1 py-4 sm:flex-row sm:gap-6"
           >
-            <p className="font-mono text-xs text-neutral-900 dark:text-neutral-100 sm:w-36 sm:shrink-0 sm:pt-0.5">
+            <p className="font-mono text-xs text-neutral-900 sm:w-36 sm:shrink-0 sm:pt-0.5">
               {item.title}
             </p>
-            <p className="text-neutral-600 dark:text-neutral-400">
+            <p className="text-neutral-600">
               {item.body}
             </p>
           </div>
@@ -242,24 +242,24 @@ export default function Page() {
         {difficulties.map((item, index) => (
           <div
             key={item.title}
-            className="rounded-lg border border-neutral-200 dark:border-neutral-800 p-4"
+            className="rounded-lg border border-neutral-200 p-4"
           >
             <div className="mb-2 flex items-center gap-3">
-              <span className="rounded border border-neutral-200 dark:border-neutral-800 px-1.5 py-0.5 font-mono text-xs text-neutral-500 tabular-nums">
+              <span className="rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-xs text-neutral-500 tabular-nums">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+              <h3 className="text-neutral-900 tracking-tight">
                 {item.title}
               </h3>
             </div>
-            <p className="mb-3 text-sm text-neutral-600 dark:text-neutral-400">
+            <p className="mb-3 text-sm text-neutral-600">
               {item.problem}
             </p>
-            <div className="flex gap-3 rounded-md bg-neutral-50 dark:bg-neutral-900 p-3">
+            <div className="flex gap-3 rounded-md bg-neutral-50 p-3">
               <span className="font-mono text-xs text-neutral-500 pt-0.5">
                 FIX
               </span>
-              <p className="text-sm text-neutral-800 dark:text-neutral-200">
+              <p className="text-sm text-neutral-800">
                 {item.fix}
               </p>
             </div>
@@ -283,7 +283,7 @@ export default function Page() {
         href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2521037"
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-8 inline-block text-sm text-neutral-600 dark:text-neutral-400 ${linkClass}`}
+        className={`mt-8 inline-block text-sm text-neutral-600 ${linkClass}`}
       >
         NSF Award #2521037 ↗
       </a>

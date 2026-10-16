@@ -294,7 +294,7 @@ export function CheckInGlobe({
     <div>
       <div
         ref={containerRef}
-        className="relative h-[560px] md:h-[760px] w-full overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 bg-black"
+        className="relative h-[560px] md:h-[760px] w-full overflow-hidden rounded-xl border border-neutral-200 bg-black"
       >
         {size.width > 0 && (
           <Globe
@@ -326,9 +326,9 @@ export function CheckInGlobe({
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4">
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-sm rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-5 shadow-xl"
+              className="w-full max-w-sm rounded-lg border border-neutral-200 bg-white p-5 shadow-xl"
             >
-              <h3 className="mb-3 text-sm font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+              <h3 className="mb-3 text-sm font-semibold tracking-tight text-neutral-900">
                 Leave a pin at {pendingPin.lat.toFixed(1)}°, {pendingPin.lng.toFixed(1)}°
               </h3>
 
@@ -344,7 +344,7 @@ export function CheckInGlobe({
 
               <div className="space-y-3">
                 <div>
-                  <label className="mb-1 block text-xs text-neutral-600 dark:text-neutral-400">
+                  <label className="mb-1 block text-xs text-neutral-600">
                     Where are you from?
                   </label>
                   <input
@@ -353,11 +353,11 @@ export function CheckInGlobe({
                     value={locationLabel}
                     onChange={(e) => setLocationLabel(e.target.value)}
                     placeholder="Queens, NY, USA"
-                    className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-1.5 text-sm text-neutral-900 dark:text-neutral-100 outline-none focus:border-neutral-500"
+                    className="w-full rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-xs text-neutral-600 dark:text-neutral-400">
+                  <label className="mb-1 block text-xs text-neutral-600">
                     Your name
                   </label>
                   <input
@@ -366,11 +366,11 @@ export function CheckInGlobe({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Doe"
-                    className="w-full rounded-md border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-1.5 text-sm text-neutral-900 dark:text-neutral-100 outline-none focus:border-neutral-500"
+                    className="w-full rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
                 <div>
-                  <label className="mb-1 block text-xs text-neutral-600 dark:text-neutral-400">
+                  <label className="mb-1 block text-xs text-neutral-600">
                     Pin color
                   </label>
                   <div className="flex gap-2">
@@ -384,7 +384,7 @@ export function CheckInGlobe({
                         className={cx(
                           'h-6 w-6 rounded-full transition-transform',
                           color === swatch &&
-                            'scale-110 ring-2 ring-neutral-900 ring-offset-2 ring-offset-white dark:ring-neutral-100 dark:ring-offset-neutral-900'
+                            'scale-110 ring-2 ring-neutral-900 ring-offset-2 ring-offset-white'
                         )}
                         style={{ backgroundColor: swatch }}
                       />
@@ -395,7 +395,7 @@ export function CheckInGlobe({
                       className={cx(
                         'relative h-6 w-6 cursor-pointer overflow-hidden rounded-full transition-transform',
                         !isPresetColor &&
-                          'scale-110 ring-2 ring-neutral-900 ring-offset-2 ring-offset-white dark:ring-neutral-100 dark:ring-offset-neutral-900'
+                          'scale-110 ring-2 ring-neutral-900 ring-offset-2 ring-offset-white'
                       )}
                       style={{
                         background: isPresetColor
@@ -413,7 +413,7 @@ export function CheckInGlobe({
                   </div>
                 </div>
                 <div>
-                  <label className="mb-1 block text-xs text-neutral-600 dark:text-neutral-400">
+                  <label className="mb-1 block text-xs text-neutral-600">
                     Message
                   </label>
                   <textarea
@@ -423,7 +423,7 @@ export function CheckInGlobe({
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Say hi!"
                     rows={3}
-                    className="w-full resize-none rounded-md border border-neutral-300 dark:border-neutral-700 bg-transparent px-3 py-1.5 text-sm text-neutral-900 dark:text-neutral-100 outline-none focus:border-neutral-500"
+                    className="w-full resize-none rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
               </div>
@@ -434,14 +434,14 @@ export function CheckInGlobe({
                 <button
                   type="button"
                   onClick={closeForm}
-                  className="rounded-md px-3 py-1.5 text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
+                  className="rounded-md px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50 dark:bg-neutral-100 dark:text-neutral-900"
+                  className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
                 >
                   {submitting ? 'Pinning…' : 'Drop pin'}
                 </button>
@@ -453,16 +453,16 @@ export function CheckInGlobe({
 
       {myPins.length > 0 && (
         <div className="mt-4">
-          <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-500">
+          <h3 className="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500">
             Your pins
           </h3>
           <ul className="space-y-1.5">
             {myPins.map((pin) => (
               <li
                 key={pin.id}
-                className="flex items-center justify-between rounded-md border border-neutral-200 dark:border-neutral-800 px-3 py-1.5 text-sm"
+                className="flex items-center justify-between rounded-md border border-neutral-200 px-3 py-1.5 text-sm"
               >
-                <span className="text-neutral-700 dark:text-neutral-300">
+                <span className="text-neutral-700">
                   {pin.locationLabel}
                 </span>
                 <button
