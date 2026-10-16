@@ -156,14 +156,15 @@ export function useDrawingBoard() {
   const undo = useCallback(() => setStrokes((prev) => prev.slice(0, -1)), [])
   const clear = useCallback(() => setStrokes([]), [])
 
+  // Resolves to true once the drawing is saved.
   const submit = useCallback(async () => {
     if (strokes.length === 0) {
       setError('Draw something first.')
-      return
+      return false
     }
     if (!author.trim()) {
       setError('Sign it with your initials.')
-      return
+      return false
     }
     setSubmitting(true)
     setError(null)
@@ -176,15 +177,17 @@ export function useDrawingBoard() {
       const data = await response.json().catch(() => null)
       if (!response.ok) {
         setError(data?.error ?? 'Something went wrong.')
-        return
+        return false
       }
       if (data?.id) {
         setDrawings((prev) => [data as Drawing, ...prev])
         setIndex(0)
       }
       setIsDrawing(false)
+      return true
     } catch {
       setError('Something went wrong.')
+      return false
     } finally {
       setSubmitting(false)
     }

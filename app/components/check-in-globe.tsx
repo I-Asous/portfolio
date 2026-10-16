@@ -294,7 +294,7 @@ export function CheckInGlobe({
     <div>
       <div
         ref={containerRef}
-        className="relative h-[560px] md:h-[760px] w-full overflow-hidden rounded-xl border border-neutral-200 bg-black"
+        className="relative h-[560px] md:h-[760px] w-full overflow-hidden rounded-none border border-black bg-black"
       >
         {size.width > 0 && (
           <Globe
@@ -326,7 +326,7 @@ export function CheckInGlobe({
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 p-4">
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-sm rounded-lg border border-neutral-200 bg-white p-5 shadow-xl"
+              className="w-full max-w-sm rounded-none border border-black bg-white p-5 shadow-xl"
             >
               <h3 className="mb-3 text-sm font-semibold tracking-tight text-neutral-900">
                 Leave a pin at {pendingPin.lat.toFixed(1)}°, {pendingPin.lng.toFixed(1)}°
@@ -353,7 +353,7 @@ export function CheckInGlobe({
                     value={locationLabel}
                     onChange={(e) => setLocationLabel(e.target.value)}
                     placeholder="Queens, NY, USA"
-                    className="w-full rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
+                    className="w-full rounded-none border border-black bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
                 <div>
@@ -366,7 +366,7 @@ export function CheckInGlobe({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jane Doe"
-                    className="w-full rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
+                    className="w-full rounded-none border border-black bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
                 <div>
@@ -423,7 +423,7 @@ export function CheckInGlobe({
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Say hi!"
                     rows={3}
-                    className="w-full resize-none rounded-md border border-neutral-300 bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
+                    className="w-full resize-none rounded-none border border-black bg-transparent px-3 py-1.5 text-sm text-neutral-900 outline-none focus:border-neutral-500"
                   />
                 </div>
               </div>
@@ -434,14 +434,14 @@ export function CheckInGlobe({
                 <button
                   type="button"
                   onClick={closeForm}
-                  className="rounded-md px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900"
+                  className="rounded-none px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
+                  className="rounded-none bg-black px-3 py-1.5 text-sm font-medium text-white disabled:opacity-50"
                 >
                   {submitting ? 'Pinning…' : 'Drop pin'}
                 </button>
@@ -460,7 +460,7 @@ export function CheckInGlobe({
             {myPins.map((pin) => (
               <li
                 key={pin.id}
-                className="flex items-center justify-between rounded-md border border-neutral-200 px-3 py-1.5 text-sm"
+                className="flex items-center justify-between rounded-none border border-black px-3 py-1.5 text-sm"
               >
                 <span className="text-neutral-700">
                   {pin.locationLabel}

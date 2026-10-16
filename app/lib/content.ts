@@ -1,6 +1,9 @@
 // Single source of truth for the site's written content, shared by every
 // layout so a redesign only has to change presentation.
 
+export const bio =
+  "I'm Islam. I'm a computer science student at Hunter College who spends more time debugging authentication flows than I'd like to admit. I'm a Software Engineer REU on Project Sisyphus, an NSF-funded research effort at Clemson University's HATLab studying authentication-fatigue-driven password reuse, and I'm interning with the NYC Department of Transportation, scoping and delivering small-scale applications. Outside of that, I'm helping 600+ students survive computer architecture, theory, and DSA & OOP as a TA, or digging into machine learning and SQL as a CUNY Tech Prep Data Science Fellow."
+
 export type Role = {
   dateRange: string
   role: string

@@ -19,19 +19,19 @@ export default async function Page() {
   const checkIns = await getCheckIns()
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        Where you from?
-      </h1>
-      <p className="mb-4 text-neutral-600">
-        Click anywhere on the globe, drop a pin, and let me know where
-        you're saying hi from.
-      </p>
-      <div className="md:relative md:left-1/2 md:w-screen md:-translate-x-1/2">
-        <div className="md:mx-auto md:max-w-4xl md:px-6 lg:px-10">
-          <CheckInGlobe initialCheckIns={checkIns} />
-        </div>
+    <div className="md:overflow-y-auto">
+      <div className="px-5 pt-10 pb-10 text-center md:pt-14">
+        <h1 className="text-[clamp(1.7rem,3.3vw,2.7rem)] leading-[1.15]">
+          where you from?
+        </h1>
+        <p className="mx-auto mt-4 max-w-xl">
+          Click anywhere on the globe, drop a pin, and let me know where
+          you're saying hi from.
+        </p>
       </div>
-    </section>
+      <div className="mx-auto max-w-5xl px-5 pb-16 md:px-6">
+        <CheckInGlobe initialCheckIns={checkIns} />
+      </div>
+    </div>
   )
 }

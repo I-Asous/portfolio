@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
-const linkClass =
-  'underline decoration-neutral-400 underline-offset-2 hover:text-neutral-900'
+const linkClass = 'underline underline-offset-4 hover:no-underline'
 
 const meta = [
   { label: 'Role', value: 'Software engineer, extension' },
@@ -108,185 +107,180 @@ function SectionHeading({
   children: ReactNode
 }) {
   return (
-    <div id={id} className="mt-14 mb-4 scroll-mt-8 flex items-baseline gap-3">
-      <span className="font-mono text-xs text-neutral-500 tabular-nums">
-        {index}
-      </span>
-      <h2 className="text-xl font-semibold tracking-tighter">{children}</h2>
+    <div id={id} className="mt-16 mb-5 scroll-mt-8 text-sm uppercase">
+      <span className="block tabular-nums">{Number(index)}</span>
+      <h2>{children}</h2>
     </div>
   )
 }
 
-const bodyClass = 'mb-4 text-neutral-600'
+const bodyClass = 'mb-4'
 
 export default function Page() {
   return (
-    <article>
-      <p className="mb-2 font-mono text-xs text-neutral-500">Case study</p>
-      <h1 className="mb-4 text-2xl font-semibold tracking-tighter">Chronos</h1>
-      <p className="mb-8 text-neutral-600">
-        Giving a silent research extension a voice: reminders and announcements
-        that reach study participants, built inside a Manifest V3 browser
-        extension.
-      </p>
+    <div className="md:overflow-y-auto">
+      <header className="px-5 pt-10 pb-12 text-center md:pt-16">
+        <p className="mb-4 text-sm uppercase">Case study</p>
+        <h1 className="title mx-auto max-w-3xl text-[clamp(1.7rem,3.3vw,2.7rem)] leading-[1.15] lowercase">
+          chronos: giving a silent research extension a voice.
+        </h1>
+      </header>
+      <article className="mx-auto max-w-2xl px-5 pb-20 text-lg leading-snug">
+        <p className="mb-8">
+          Reminders and announcements that reach study participants, built
+          inside a Manifest V3 browser extension.
+        </p>
 
-      <dl className="mb-6 grid grid-cols-2 gap-x-6 gap-y-4 border-y border-neutral-200 py-5">
-        {meta.map((item) => (
-          <div key={item.label}>
-            <dt className="text-xs text-neutral-500">{item.label}</dt>
-            <dd className="text-sm text-neutral-900">
-              {item.value}
-            </dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mb-6 flex flex-wrap gap-x-2 gap-y-1">
-        {tech.map((item) => (
-          <span
-            key={item}
-            className="text-xs text-neutral-600 border border-neutral-200 rounded-full px-2 py-0.5"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
-
-      <nav
-        aria-label="On this page"
-        className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-neutral-600"
-      >
-        {sections.map((section) => (
-          <a key={section.id} href={`#${section.id}`} className={linkClass}>
-            {section.label}
-          </a>
-        ))}
-      </nav>
-
-      <SectionHeading id="overview" index="01">
-        Overview
-      </SectionHeading>
-      <p className={bodyClass}>
-        Chronos is a companion browser extension for an NSF-funded human-factors
-        study into secure-authentication usability. It quietly records auth
-        events (logins, MFA prompts, logouts) as participants go about their
-        normal browsing, and feeds the read-only analytics dashboard built in{' '}
-        <Link href="/projects" className={linkClass}>
-          Project Sisyphus
-        </Link>
-        .
-      </p>
-      <p className={bodyClass}>
-        I joined the extension side of the project to debug and extend it,
-        working alongside the team that built the detection engine.
-      </p>
-
-      <SectionHeading id="problem" index="02">
-        The problem
-      </SectionHeading>
-      <p className={bodyClass}>
-        A longitudinal study depends on people staying engaged, but Chronos was
-        entirely passive. It collected data and said nothing. Researchers had no
-        way to remind a participant to keep the extension running, and the
-        broadcast messages admins could write in the dashboard had nowhere to
-        land on the participant’s side.
-      </p>
-      <p className={bodyClass}>
-        Separately, the detector could not tell a phone number from a username,
-        which muddied the data for phone-first sign-in flows.
-      </p>
-
-      <SectionHeading id="built" index="03">
-        What I built
-      </SectionHeading>
-      <ul className="space-y-6">
-        {built.map((item) => (
-          <li key={item.title}>
-            <p className="text-neutral-900 tracking-tight">
-              {item.title}
-            </p>
-            <p className="mt-1 text-neutral-600">
-              {item.body}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <SectionHeading id="decisions" index="04">
-        Design decisions
-      </SectionHeading>
-      <div className="divide-y divide-neutral-200 border-y border-neutral-200">
-        {decisions.map((item) => (
-          <div
-            key={item.title}
-            className="flex flex-col gap-1 py-4 sm:flex-row sm:gap-6"
-          >
-            <p className="font-mono text-xs text-neutral-900 sm:w-36 sm:shrink-0 sm:pt-0.5">
-              {item.title}
-            </p>
-            <p className="text-neutral-600">
-              {item.body}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <SectionHeading id="difficulties" index="05">
-        Difficulties &amp; fixes
-      </SectionHeading>
-      <p className={bodyClass}>
-        Scheduling looks simple until real clocks get involved. These are the
-        problems that took the most care.
-      </p>
-      <div className="space-y-4">
-        {difficulties.map((item, index) => (
-          <div
-            key={item.title}
-            className="rounded-lg border border-neutral-200 p-4"
-          >
-            <div className="mb-2 flex items-center gap-3">
-              <span className="rounded border border-neutral-200 px-1.5 py-0.5 font-mono text-xs text-neutral-500 tabular-nums">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="text-neutral-900 tracking-tight">
-                {item.title}
-              </h3>
+        <dl className="mb-6 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
+          {meta.map((item) => (
+            <div key={item.label}>
+              <dt className="uppercase">{item.label}</dt>
+              <dd className="text-neutral-600">
+                {item.value}
+              </dd>
             </div>
-            <p className="mb-3 text-sm text-neutral-600">
-              {item.problem}
-            </p>
-            <div className="flex gap-3 rounded-md bg-neutral-50 p-3">
-              <span className="font-mono text-xs text-neutral-500 pt-0.5">
-                FIX
-              </span>
-              <p className="text-sm text-neutral-800">
-                {item.fix}
+          ))}
+        </dl>
+
+        <div className="mb-6 flex flex-wrap gap-x-3 gap-y-1 text-sm uppercase text-neutral-600">
+          {tech.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+
+        <nav
+          aria-label="On this page"
+          className="flex flex-wrap gap-x-4 gap-y-1 text-sm uppercase"
+        >
+          {sections.map((section) => (
+            <a key={section.id} href={`#${section.id}`} className={linkClass}>
+              {section.label}
+            </a>
+          ))}
+        </nav>
+
+        <SectionHeading id="overview" index="01">
+          Overview
+        </SectionHeading>
+        <p className={bodyClass}>
+          Chronos is a companion browser extension for an NSF-funded human-factors
+          study into secure-authentication usability. It quietly records auth
+          events (logins, MFA prompts, logouts) as participants go about their
+          normal browsing, and feeds the read-only analytics dashboard built in{' '}
+          <Link href="/projects" className={linkClass}>
+            Project Sisyphus
+          </Link>
+          .
+        </p>
+        <p className={bodyClass}>
+          I joined the extension side of the project to debug and extend it,
+          working alongside the team that built the detection engine.
+        </p>
+
+        <SectionHeading id="problem" index="02">
+          The problem
+        </SectionHeading>
+        <p className={bodyClass}>
+          A longitudinal study depends on people staying engaged, but Chronos was
+          entirely passive. It collected data and said nothing. Researchers had no
+          way to remind a participant to keep the extension running, and the
+          broadcast messages admins could write in the dashboard had nowhere to
+          land on the participant’s side.
+        </p>
+        <p className={bodyClass}>
+          Separately, the detector could not tell a phone number from a username,
+          which muddied the data for phone-first sign-in flows.
+        </p>
+
+        <SectionHeading id="built" index="03">
+          What I built
+        </SectionHeading>
+        <ul className="space-y-6">
+          {built.map((item) => (
+            <li key={item.title}>
+              <p className="text-sm uppercase">
+                {item.title}
+              </p>
+              <p className="mt-1">
+                {item.body}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <SectionHeading id="decisions" index="04">
+          Design decisions
+        </SectionHeading>
+        <div className="space-y-5">
+          {decisions.map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col gap-1 sm:flex-row sm:gap-6"
+            >
+              <p className="text-sm uppercase sm:w-40 sm:shrink-0 sm:pt-1">
+                {item.title}
+              </p>
+              <p>
+                {item.body}
               </p>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <SectionHeading id="testing" index="06">
-        Testing
-      </SectionHeading>
-      <p className={bodyClass}>
-        Time-based code is only trustworthy if the clock is under your control.
-        Every scheduler function takes the current time as a parameter, which
-        let me write over 700 lines of Vitest tests for the rule store,
-        recurrence math, scheduler, announcement client, and popup composable,
-        covering month-end clamping, late ticks, disabled rules, and one-shot
-        rules that must disable themselves after firing.
-      </p>
+        <SectionHeading id="difficulties" index="05">
+          Difficulties &amp; fixes
+        </SectionHeading>
+        <p className={bodyClass}>
+          Scheduling looks simple until real clocks get involved. These are the
+          problems that took the most care.
+        </p>
+        <div className="space-y-8">
+          {difficulties.map((item, index) => (
+            <div key={item.title}>
+              <div className="mb-2 flex items-center gap-3">
+                <span className="text-sm tabular-nums">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-sm uppercase">
+                  {item.title}
+                </h3>
+              </div>
+              <p className="mb-2">
+                {item.problem}
+              </p>
+              <div className="flex gap-3">
+                <span className="text-sm uppercase pt-1">
+                  FIX
+                </span>
+                <p className="text-neutral-600">
+                  {item.fix}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-      <a
-        href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2521037"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`mt-8 inline-block text-sm text-neutral-600 ${linkClass}`}
-      >
-        NSF Award #2521037 ↗
-      </a>
-    </article>
+        <SectionHeading id="testing" index="06">
+          Testing
+        </SectionHeading>
+        <p className={bodyClass}>
+          Time-based code is only trustworthy if the clock is under your control.
+          Every scheduler function takes the current time as a parameter, which
+          let me write over 700 lines of Vitest tests for the rule store,
+          recurrence math, scheduler, announcement client, and popup composable,
+          covering month-end clamping, late ticks, disabled rules, and one-shot
+          rules that must disable themselves after firing.
+        </p>
+
+        <a
+          href="https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2521037"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-12 inline-block text-sm uppercase ${linkClass}`}
+        >
+          NSF Award #2521037 ↗
+        </a>
+      </article>
+    </div>
   )
 }
