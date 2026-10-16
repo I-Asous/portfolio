@@ -101,6 +101,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'token-watching',
+    hasCaseStudy: true,
     dateRange: 'Aug 2026',
     name: 'Token Watching - Capstone, CUNY Hunter',
     tagline:
