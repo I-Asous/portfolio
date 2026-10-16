@@ -8,7 +8,7 @@ const linkClass = 'underline underline-offset-4 hover:no-underline'
 export default function Page() {
   return (
     <div className="md:overflow-y-auto">
-      <p className="title mx-auto max-w-6xl px-5 pt-10 pb-16 text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.18] lowercase md:pt-16">
+      <p className="title mx-auto max-w-6xl px-5 pt-10 pb-28 text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.18] lowercase md:pt-16">
         {bio}
       </p>
 
