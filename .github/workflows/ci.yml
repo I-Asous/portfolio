@@ -7,6 +7,35 @@ on:
     branches: [main]
 
 jobs:
+  no-ai-contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Fail if any new commit credits Claude/Anthropic as an author or
+      # co-author, so they can never appear as a repo contributor.
+      - name: Reject Claude/Anthropic commit credits
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            RANGE="$HEAD"
+          else
+            RANGE="$BASE..$HEAD"
+          fi
+          bad=$( {
+            git log --format='%an <%ae>%n%cn <%ce>' "$RANGE" | grep -iE '^claude[ <]|@anthropic\.com>'
+            git log --format='%B' "$RANGE" | grep -iE '^co-authored-by:.*(claude|anthropic)'
+          } || true )
+          if [ -n "$bad" ]; then
+            echo "Commits credit Claude/Anthropic:"
+            echo "$bad"
+            exit 1
+          fi
+
   build:
     runs-on: ubuntu-latest
     steps:

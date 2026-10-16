@@ -39,6 +39,14 @@ export function ensureSchema() {
         create index if not exists check_ins_created_at_idx on check_ins (created_at desc);
         alter table check_ins add column if not exists color text not null default '#ef4444';
         alter table check_ins add column if not exists delete_token_hash text;
+        create table if not exists drawings (
+          id serial primary key,
+          author text not null,
+          strokes jsonb not null,
+          ip_hash text,
+          created_at timestamptz not null default now()
+        );
+        create index if not exists drawings_created_at_idx on drawings (created_at desc);
         `
       )
       .then(() => undefined)
@@ -81,3 +89,26 @@ export function toCheckIn(row: CheckInRow): CheckIn {
   }
 }
 
+
+export type DrawingRow = {
+  id: number
+  author: string
+  strokes: number[][]
+  created_at: string
+}
+
+export type Drawing = {
+  id: number
+  author: string
+  strokes: number[][]
+  createdAt: string
+}
+
+export function toDrawing(row: DrawingRow): Drawing {
+  return {
+    id: row.id,
+    author: row.author,
+    strokes: row.strokes,
+    createdAt: row.created_at,
+  }
+}
