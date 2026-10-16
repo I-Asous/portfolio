@@ -8,11 +8,11 @@ const linkClass = 'underline underline-offset-4 hover:no-underline'
 export default function Page() {
   return (
     <div className="md:overflow-y-auto">
-      <p className="title mx-auto max-w-6xl px-5 pt-10 pb-28 text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.18] lowercase md:pt-16">
+      <p className="title mx-auto max-w-6xl px-5 pt-10 pb-56 text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.18] lowercase md:pt-16">
         {bio}
       </p>
 
-      <div className="grid grid-cols-1 gap-x-6 gap-y-12 px-5 pb-16 text-center text-sm leading-snug sm:grid-cols-2 md:px-6 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-x-6 gap-y-12 px-5 pb-16 text-center text-sm leading-snug sm:grid-cols-2 md:px-6 lg:grid-cols-4">
         <section>
           <h2 className="mb-4 uppercase">Roles</h2>
           <ul className="space-y-4">
