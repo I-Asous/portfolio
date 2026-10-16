@@ -2,7 +2,7 @@
 // layout so a redesign only has to change presentation.
 
 export const bio =
-  "I'm Islam. I'm a computer science student at Hunter College who spends more time debugging authentication flows than I'd like to admit. I'm a Software Engineer REU on Project Sisyphus, an NSF-funded research effort at Clemson University's HATLab studying authentication-fatigue-driven password reuse, and I'm interning with the NYC Department of Transportation, scoping and delivering small-scale applications. Outside of that, I'm helping 600+ students survive computer architecture, theory, and DSA & OOP as a TA, or digging into machine learning and SQL as a CUNY Tech Prep Data Science Fellow."
+  "I'm Islam. I'm a computer science student at Hunter College, minoring in math and graduating in December 2026, who spends more time debugging authentication flows than I'd like to admit. I'm a Software Engineer REU on Project Sisyphus, an NSF-funded research effort at Clemson University studying authentication-fatigue-driven password reuse, and I'm interning with the NYC Department of Transportation, building a wind load capacity map that classifies building footprints across all five boroughs. Outside of that, I'm helping 600+ students survive computer architecture, theory, and DSA & OOP as a TA, digging into machine learning and LLMs as a CUNY Tech Prep Data Science Fellow, and building Token Watching, a Chrome extension that trims LLM prompt costs, and Gridlock, a testbed for catching AI agents that game their own rules."
 
 export type Role = {
   dateRange: string
