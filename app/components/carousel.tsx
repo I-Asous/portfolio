@@ -30,7 +30,7 @@ const project = projects[0]
 
 const staticGroups: Group[] = [
   {
-    title: ['Project Sisyphus', 'HATlab, Clemson University'],
+    title: ['Projects'],
     slides: [
       { kind: 'text', big: project.tagline, small: project.tech.join(' · ') },
       ...(project.description ?? []).map(
@@ -273,8 +273,9 @@ export function Carousel() {
               <span className="mb-2 block text-center">{g + 1}</span>
               <span className={g === activeGroup ? 'underline underline-offset-2' : ''}>
                 {group.title[0]}
-                {group.title[1] && <br />}
-                {group.title[1]}
+                <br />
+                {/* Keep a second line so every group's numbers stay aligned. */}
+                {group.title[1] ?? '\u00a0'}
               </span>
             </button>
             <div className="mt-3 flex flex-wrap justify-center gap-x-2.5 gap-y-1 [&>*]:uppercase">
