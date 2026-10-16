@@ -7,18 +7,19 @@ const linkClass = 'underline underline-offset-4 hover:no-underline'
 
 export default function Page() {
   return (
-    <div className="md:overflow-y-auto">
-      {/* The bio fills the first screen (below the header), centered both ways. */}
-      <div className="flex min-h-[calc(100svh-3.75rem)] items-center justify-center px-5 pb-16">
-        <p className="title max-w-6xl text-center text-[clamp(1.4rem,2.6vw,2.2rem)] leading-[1.18] lowercase">
+    // On desktop the page is exactly one screen: the bio centered in the
+    // space left above the columns, which sit at the bottom. Phones scroll.
+    <div className="flex flex-col md:min-h-0 md:flex-1 md:overflow-hidden">
+      <div className="flex flex-1 items-center justify-center px-5 py-12 md:py-4">
+        <p className="title max-w-6xl text-center text-[clamp(1.2rem,min(2.6vw,3.8vh),2.2rem)] leading-[1.18] lowercase">
           {bio}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-x-6 gap-y-12 px-5 pb-16 text-center text-sm leading-snug sm:grid-cols-2 md:px-6 lg:grid-cols-4">
+      <div className="grid shrink-0 grid-cols-1 gap-x-6 gap-y-12 px-5 pb-8 text-center text-sm leading-snug sm:grid-cols-2 md:px-6 lg:grid-cols-4">
         <section>
-          <h2 className="mb-4 uppercase">Roles</h2>
-          <ul className="space-y-4">
+          <h2 className="mb-[min(1rem,1.6vh)] uppercase">Roles</h2>
+          <ul className="space-y-[min(1rem,1.5vh)]">
             {roles.map((role) => (
               <li key={role.role}>
                 <p>{role.role}</p>
@@ -32,8 +33,8 @@ export default function Page() {
         </section>
 
         <section>
-          <h2 className="mb-4 uppercase">Projects</h2>
-          <ul className="space-y-4">
+          <h2 className="mb-[min(1rem,1.6vh)] uppercase">Projects</h2>
+          <ul className="space-y-[min(1rem,1.5vh)]">
             {projects.map((project) => (
               <li key={project.slug}>
                 {project.hasCaseStudy ? (
@@ -50,8 +51,8 @@ export default function Page() {
         </section>
 
         <section id="certificates" className="scroll-mt-6">
-          <h2 className="mb-4 uppercase">Certificates</h2>
-          <ul className="space-y-4">
+          <h2 className="mb-[min(1rem,1.6vh)] uppercase">Certificates</h2>
+          <ul className="space-y-[min(1rem,1.5vh)]">
             {certificates.map((cert) => (
               <li key={cert.name}>
                 {cert.link ? (
@@ -70,7 +71,7 @@ export default function Page() {
         </section>
 
         <section>
-          <h2 className="mb-4 uppercase">Elsewhere</h2>
+          <h2 className="mb-[min(1rem,1.6vh)] uppercase">Elsewhere</h2>
           <ul className="space-y-1">
             <li>
               <a href="https://github.com/I-Asous" target="_blank" rel="noopener noreferrer" className={linkClass}>
