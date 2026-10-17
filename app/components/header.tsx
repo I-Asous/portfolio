@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className="shrink-0 flex items-center justify-between px-5 py-4 text-lg md:px-6">
       <Link href="/" className="tracking-tight">
-        ISLAMasous
+        islamASOUS
       </Link>
       <nav className="flex items-center gap-4">
         <Link href="/information" className="hover:underline underline-offset-4">

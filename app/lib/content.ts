@@ -126,6 +126,23 @@ export const projects: Project[] = [
       'Engineering an oversight monitor that scores behavior against hidden intent and flags divergence, evaluated by detection rate, time-to-detect, and false-positive rate against a static-rule baseline.',
     ],
   },
+  {
+    slug: 'where-assets-can-stand',
+    dateRange: 'Oct 2026',
+    name: 'Where Assets Can Stand - NYC Department of Transportation',
+    tagline:
+      'A citywide wind load map that shows where NYC DOT can safely place bus shelters, kiosks, and street furniture.',
+    tech: ['GIS', 'Python', 'Georeferencing', 'Buffer analysis', 'NYC Building Code §1609'],
+    description: [
+      'Digitizing the wind exposure categories of the NYC Building Code (§1609.4.3) across all five boroughs: georeferencing the code figures, tracing the shoreline, and assigning Exposure B, C, or D to each segment.',
+      'Building distance-from-shoreline zones (600 / 1,500 / 2,600 / 5,000 ft) and classifying every building footprint with the code’s 20× height rule.',
+      'Overlaying existing and proposed street assets against their rated wind load capacity to flag high-exposure placements, delivered as GIS layers DOT staff can combine with other datasets.',
+    ],
+    link: {
+      href: 'https://github.com/I-Asous/Where-Assets-can-Stand',
+      label: 'View on GitHub',
+    },
+  },
 ]
 
 export type Certificate = {
