@@ -25,7 +25,7 @@ export function Header() {
       </Link>
       <nav className="flex items-center gap-4">
         <Link href="/information" className="hover:underline underline-offset-4">
-          INFORMATION
+          README.md
         </Link>
         <Link
           href="/check-in"
