@@ -154,6 +154,15 @@ export type Certificate = {
 
 export const certificates: Certificate[] = [
   {
+    date: 'Nov 2026',
+    name: 'AI Fluency: Framework & Foundations',
+    issuer: 'Claude Academy',
+    link: {
+      href: 'https://academy.claude.com/verify/72dbf428fd79d8d035ab3ab10967dd28',
+      label: 'Verify credential',
+    },
+  },
+  {
     date: 'Jul 2026',
     name: 'Social and Behavioral Responsible Conduct of Research',
     issuer: 'CITI Program',
